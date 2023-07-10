@@ -9,7 +9,9 @@ import {BootstrapVueNextResolver} from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   plugins: [
     vue(),
-    BootstrapVueNextResolver(),
+    Components({
+      resolvers: [BootstrapVueNextResolver()],
+    }),
   ],
   resolve: {
     alias: {
