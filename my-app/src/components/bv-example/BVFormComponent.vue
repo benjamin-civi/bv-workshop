@@ -8,14 +8,19 @@ export default{
             comments: '',
             performace: 50,
         })
-
-        return {formData}
+        
+        const onSubmit = (event)=>{
+            event.preventDefault();
+            
+            console.log("/// Do something")
+        }
+        return {formData, onSubmit}
     },
 }
 </script>
 
 <template>
-    <b-form>
+    <b-form @submit="onSubmit">
     <b-form-group description="Personal Info">
     <label>Name</label>
     <b-form-input v-model="formData.name" placeholder="Your Name Here">
@@ -28,5 +33,6 @@ export default{
     <label>Performace Rating</label>
     <b-form-input type="range" v-model="formData.performace"></b-form-input>
     </b-form-group>
+    <b-button variant="info" type="submit">Submit</b-button>
     </b-form>
 </template>
